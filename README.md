@@ -1,4 +1,4 @@
-# Arch Luna website
+# Arch Luna website ☾
 
 A multi-page static website for Arch Luna, built with HTML, CSS, and JavaScript.
 
