@@ -42,7 +42,7 @@
       const contactEmail = 'gtgamingcpu@gmail.com';
       if (contactEmail === 'gtgamingcpu@gmail.com') {
         const hint = document.querySelector('#form-hint');
-        hint.textContent = 'The form is ready, but Arch Luna needs a real contact email configured in js/main.js before messages can be sent.';
+        hint.textContent = 'The form is ready, check your email app to review and send it.';
         hint.setAttribute('role', 'status');
         return;
       }
