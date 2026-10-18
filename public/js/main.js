@@ -68,13 +68,13 @@
       const body = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nTopic: ${data.get('topic')}\n\n${data.get('message')}`;
       // Replace this placeholder with the company's real contact email before launch.
       const contactEmail = 'gtgamingcpu@gmail.com';
-      if (contactEmail === 'gtgamingcpu@gmail.com') {
-        const hint = document.querySelector('#form-hint');
-        hint.textContent = 'The form is ready, check your email app to review it.';
-        hint.setAttribute('role', 'status');
-        return;
-      }
-      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+     
+      const hint = document.querySelector('#form-hint');
+      hint.textContent = 'Opening Gmail so you can send your message...';
+      hint.setAttribute('role', 'status');
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contactEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
     });
   }
 })();
