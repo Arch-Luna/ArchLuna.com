@@ -67,10 +67,10 @@
       const subject = `[Arch Luna] ${data.get('topic')}`;
       const body = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nTopic: ${data.get('topic')}\n\n${data.get('message')}`;
       // Replace this placeholder with the company's real contact email before launch.
-      const contactEmail = 'YOUR_EMAIL_HERE';
-      if (contactEmail === 'YOUR_EMAIL_HERE') {
+      const contactEmail = 'gtgamingcpu@gmail.com';
+      if (contactEmail === 'gtgamingcpu@gmail.com') {
         const hint = document.querySelector('#form-hint');
-        hint.textContent = 'The form is ready, but Arch Luna needs a real contact email configured in js/main.js before messages can be sent.';
+        hint.textContent = 'The form is ready, check your email app to review it.';
         hint.setAttribute('role', 'status');
         return;
       }
