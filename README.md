@@ -1,4 +1,4 @@
-# Arch Luna website ☾
+# Arch Luna website ☾ ✦
 
 Website: https://archluna.onrender.com
 
@@ -14,6 +14,6 @@ A multi-page static website for Arch Luna, built with HTML, CSS, and JavaScript.
 - `public/about.html` — About Arch Luna
 - `public/contact.html` — Contact form (opens an email draft after you configure the destination)
 
-### Updates will happen often on ArchLuna.com
+### ✦ `Updates will happen often on ArchLuna.com ✦
 
 
