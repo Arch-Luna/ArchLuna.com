@@ -60,21 +60,44 @@
   }
 
   const form = document.querySelector('#contact-form');
-  if (form) {
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-      const data = new FormData(form);
-      const subject = `[Arch Luna] ${data.get('topic')}`;
-      const body = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nTopic: ${data.get('topic')}\n\n${data.get('message')}`;
-      // Replace this placeholder with the company's real contact email before launch.
-      const contactEmail = 'archlunar@proton.me';
-      if (contactEmail === 'archlunar@proton.me') {
-        const hint = document.querySelector('#form-hint');
-        hint.textContent = 'Redirecting to gmail.com...';
-        hint.setAttribute('role', 'status');
-        return;
-      }
-      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
-  }
-})();
+
+const form = document.querySelector('#contact-form');
+
+if (form) {
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const data = new FormData(form);
+    const subject = `[Arch Luna] ${data.get('topic')}`;
+    const body =
+      `Name: ${data.get('name')}\n` +
+      `Email: ${data.get('email')}\n` +
+      `Topic: ${data.get('topic')}\n\n` +
+      `${data.get('message')}`;
+
+    const contactEmail = 'archlunar@proton.me';
+
+    const gmailUrl = new URL('https://mail.google.com/mail/');
+    gmailUrl.searchParams.set('view', 'cm');
+    gmailUrl.searchParams.set('fs', '1');
+    gmailUrl.searchParams.set('to', contactEmail);
+    gmailUrl.searchParams.set('su', subject);
+    gmailUrl.searchParams.set('body', body);
+
+    const opened = window.open(gmailUrl.toString(), '_blank');
+
+    if (opened) {
+      opened.opener = null;
+    }
+
+    const hint = document.querySelector('#form-hint');
+
+    if (hint) {
+      hint.textContent = opened
+        ? 'Gmail opened in a new tab with your message ready to review and send.'
+        : 'Your browser blocked the new tab. Allow pop-ups for this site and try again.';
+
+      hint.setAttribute('role', 'status');
+    }
+  });
+}
